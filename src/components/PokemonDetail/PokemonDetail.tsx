@@ -4,6 +4,7 @@ import Image from "next/image";
 import AbilityChip from "../Common/AbilityChip";
 import TypeChip from "../Common/TypeChip";
 import DetailForm from "./DetailForm";
+import MovesBtn from "./MovesBtn";
 
 interface PokemonDetailProps {
   pokemonData: TPokemon;
@@ -51,15 +52,8 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
                 ))}
               </ul>
             </DetailForm>
-            <DetailForm label="기술"></DetailForm>
+            <DetailForm label="기술"><MovesBtn moves={pokemonData.moves}/></DetailForm>
           </div>
-        </div>
-        <div>
-          <ul>
-            {pokemonData.moves.map((move, index) => (
-              <li key={index}>{move.move.korean_name}</li>
-            ))}
-          </ul>
         </div>
         <div></div>
       </main>

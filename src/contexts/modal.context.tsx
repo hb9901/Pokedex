@@ -1,3 +1,5 @@
+'use client'
+
 import MovesModal from "@/components/Modal/MovesModal";
 import { TMove } from "@/schemas/pokemon.type";
 import { PropsWithChildren, createContext, useContext, useState } from "react";
