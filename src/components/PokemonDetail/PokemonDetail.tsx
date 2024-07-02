@@ -11,7 +11,7 @@ interface PokemonDetailProps {
 function PokemonDetail({ pokemonData }: PokemonDetailProps) {
   const pokemonId = makeIndexStr(String(pokemonData.id));
   return (
-    <>
+    <div className="flex flex-col items-center max-w-4xl m-auto bg-white">
       <header></header>
       <main className="flex flex-col">
         <div className="flex flex-row gap-x-3">
@@ -62,7 +62,7 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
         </div>
         <div></div>
       </main>
-    </>
+    </div>
   );
 }
 
