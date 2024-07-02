@@ -3,6 +3,7 @@ import { makeIndexStr } from "@/utils/function";
 import Image from "next/image";
 import AbilityChip from "../Common/AbilityChip";
 import TypeChip from "../Common/TypeChip";
+import DetailForm from "./DetailForm";
 
 interface PokemonDetailProps {
   pokemonData: TPokemon;
@@ -28,8 +29,7 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
               <span className="text-slate-400 text-sm">No.{pokemonId}</span>
               <h5 className="font-bold text-lg">{pokemonData.korean_name}</h5>
             </div>
-            <div className="flex flex-row gap-x-1">
-              <span className="font-bold">타입:</span>
+            <DetailForm label="타입">
               <ul className="flex flex-row gap-x-1">
                 {pokemonData.types.map((type, index) => (
                   <li key={index}>
@@ -40,9 +40,8 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
                   </li>
                 ))}
               </ul>
-            </div>
-            <div className="flex flex-row gap-x-1">
-              <span className="font-bold">특성:</span>
+            </DetailForm>
+            <DetailForm label="특성">
               <ul className="flex flex-row gap-x-1">
                 {pokemonData.abilities.map((ability, index) => (
                   <li key={index}>
@@ -50,7 +49,10 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </DetailForm>
+            <DetailForm label="기술">
+              <button>기술 확인하기</button>
+            </DetailForm>
           </div>
         </div>
         <div>
