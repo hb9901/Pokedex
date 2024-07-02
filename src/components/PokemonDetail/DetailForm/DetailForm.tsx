@@ -6,7 +6,7 @@ type DetailForm = {
 
 function DetailForm({ label, children }: PropsWithChildren<DetailForm>) {
   return (
-    <div className="flex flex-row gap-x-1">
+    <div className="flex flex-row items-center gap-x-1">
       <span className="font-bold">{label}:</span>
       {children}
     </div>

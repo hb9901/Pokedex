@@ -13,13 +13,13 @@ function PokemonListCard({ pokemon }: PokemonListCardProps) {
     <Link href={`/pokemons/${pokemon.id}`}>
       <div
         className="flex flex-col items-center justify-center border 
-    border-slate-500 rounded-md px-10 py-6 hover:shadow-xl bg-white
-    hover:-translate-y-1 transition duration-200 cursor-pointer"
+      border-slate-500 rounded-md px-10 py-6 hover:shadow-xl bg-white
+        hover:-translate-y-1 transition duration-200 cursor-pointer"
       >
         <div className="relative w-full aspect-square">
           <Image
             alt={pokemon.korean_name}
-            src={pokemon.sprites.front_default}
+            src={pokemon.sprites.other['official-artwork'].front_default}
             fill
             className="object-cover"
             sizes="w-full"

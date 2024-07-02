@@ -20,11 +20,7 @@ async function DetailPage({ params }: DetailPageProps) {
 
   const pokemonData = await getPokemon(params.id);
 
-  return (
-    <div className="flex flex-col items-center max-w-4xl m-auto bg-white">
-      <PokemonDetail pokemonData={pokemonData} />
-    </div>
-  );
+  return <PokemonDetail pokemonData={pokemonData} />;
 }
 
 export default DetailPage;
