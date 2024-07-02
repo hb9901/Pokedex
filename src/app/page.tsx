@@ -23,9 +23,15 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="flex flex-col items-center max-w-[1800px] m-auto">
-      <h1>포켓몬 도감</h1>
-      {isInitialized ? <PokemonList pokemons={pokemons} /> : <Loading />}
+    <main className="flex flex-col items-center max-w-[1800px] m-auto gap-y-6">
+      {isInitialized ? (
+        <>
+          <h1 className="text-lg font-bold">포켓몬 도감</h1>
+          <PokemonList pokemons={pokemons} />
+        </>
+      ) : (
+        <Loading />
+      )}
     </main>
   );
 }
