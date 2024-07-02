@@ -1,7 +1,7 @@
 import { TPokemon } from "@/schemas/pokemon.type";
 import Image from "next/image";
 import Link from "next/link";
-import { makeIndexStr } from "./function";
+import { makeIndexStr } from "../../utils/function";
 
 interface PokemonListCardProps {
   pokemon: TPokemon;
@@ -22,6 +22,7 @@ function PokemonListCard({ pokemon }: PokemonListCardProps) {
             src={pokemon.sprites.front_default}
             fill
             className="object-cover"
+            sizes="w-full"
           />
         </div>
         <span className="text-slate-400 text-sm">No.{pokemonId}</span>

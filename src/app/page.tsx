@@ -6,14 +6,14 @@ import { TPokemon } from "@/schemas/pokemon.type";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function Home() {
+export default function HomePage() {
   const [isInitialized, setIsInitialized] = useState<boolean>(false);
   const [pokemons, setPokemons] = useState<TPokemon[] | null>(null);
 
   useEffect(() => {
     const getPokemonList = async () => {
       const response = await axios.get<Promise<TPokemon[]>>(
-        "http://localhost:3000/pokemons"
+        "/api"
       );
       const pokemonsData = await response.data;
       setPokemons(pokemonsData);
