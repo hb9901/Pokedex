@@ -21,3 +21,7 @@ export type TPokemon = {
   abilities: { ability: { name: string; korean_name: string } }[];
   moves: { move: { name: string; korean_name: string } }[];
 };
+
+export type TMove = {
+  move: { name: string; korean_name: string };
+};

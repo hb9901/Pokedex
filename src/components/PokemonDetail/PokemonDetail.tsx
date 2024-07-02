@@ -11,6 +11,7 @@ interface PokemonDetailProps {
 
 function PokemonDetail({ pokemonData }: PokemonDetailProps) {
   const pokemonId = makeIndexStr(String(pokemonData.id));
+
   return (
     <div className="flex flex-col items-center max-w-4xl m-auto bg-white">
       <header></header>
@@ -50,9 +51,7 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
                 ))}
               </ul>
             </DetailForm>
-            <DetailForm label="기술">
-              <button>기술 확인하기</button>
-            </DetailForm>
+            <DetailForm label="기술"></DetailForm>
           </div>
         </div>
         <div>
