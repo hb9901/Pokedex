@@ -2,14 +2,10 @@
 
 import Loading from "@/components/Loading";
 import PokemonList from "@/components/PokemonList";
-import usePokemon from "@/hooks/usePokemon";
-import { useState } from "react";
+import usePokemon from "@/hooks/usePokemons";
 
 export default function HomePage() {
-  const [isInitialized, setIsInitialized] = useState<boolean>(false);
-  // const [pokemons, setPokemons] = useState<TPokemon[] | null>(null);
-
-  const { pokemons, isLoading } = usePokemon();
+  const { pokemons, isLoading, isError } = usePokemon();
 
   return (
     <main className="flex flex-col items-center max-w-[1800px] mt-8 m-auto gap-y-6">

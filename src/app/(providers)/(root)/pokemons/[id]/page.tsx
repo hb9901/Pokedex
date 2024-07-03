@@ -1,6 +1,5 @@
+import api from "@/api/api";
 import PokemonDetail from "@/components/PokemonDetail";
-import { TPokemon } from "@/schemas/pokemon.type";
-import axios from "axios";
 import { Metadata } from "next";
 
 interface MetadataProps {
@@ -13,16 +12,7 @@ export async function generateMetadata({
   params,
 }: MetadataProps): Promise<Metadata> {
   const id = params.id;
-  async function getPokemon(id: string) {
-    const response = await axios.get<Promise<TPokemon>>(
-      `http://localhost:3000/pokemons/${id}/api`
-    );
-    const data = response.data;
-
-    return data;
-  }
-
-  const pokemonData = await getPokemon(id);
+  const pokemonData = await api.pokemon.getPokemon(id);
   const title = pokemonData.korean_name;
 
   return {
@@ -38,16 +28,7 @@ interface DetailPageProps {
 
 async function DetailPage({ params }: DetailPageProps) {
   const id = params.id;
-  async function getPokemon(id: string) {
-    const response = await axios.get<Promise<TPokemon>>(
-      `http://localhost:3000/pokemons/${id}/api`
-    );
-    const data = response.data;
-
-    return data;
-  }
-
-  const pokemonData = await getPokemon(id);
+  const pokemonData = await api.pokemon.getPokemon(id);
 
   return <PokemonDetail pokemonData={pokemonData} />;
 }

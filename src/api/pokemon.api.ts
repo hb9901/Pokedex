@@ -1,9 +1,28 @@
 import { TPokemon } from "@/schemas/pokemon.type";
-import axios from "axios";
+import { AxiosInstance } from "axios";
 
-export const getPokemonList = async () => {
-  const response = await axios.get<Promise<TPokemon[]>>("/api");
-  const pokemonsData = await response.data;
-  
-  return pokemonsData;
-};
+class PokemonAPI {
+  private axios: AxiosInstance;
+
+  constructor(axios: AxiosInstance) {
+    this.axios = axios;
+  }
+
+  async getPokemonList() {
+    const path = "/api";
+    const response = await this.axios.get<Promise<TPokemon[]>>(path);
+    const pokemonsData = await response.data;
+
+    return pokemonsData;
+  }
+
+  async getPokemon(id: string) {
+    const path = `/pokemons/${id}/api`;
+    const response = await this.axios.get<Promise<TPokemon>>(path);
+    const pokemonData = response.data;
+
+    return pokemonData;
+  }
+}
+
+export default PokemonAPI;
