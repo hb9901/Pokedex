@@ -1,14 +1,15 @@
 import axios from "axios";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-const TOTAL_POKEMON = 151;
-
-export const GET = async (request: Request) => {
+export const GET = async (request: NextRequest) => {
+  const DATA_NUM_PER_PAGE = 6;
+  const TOTAL_POKEMON = Number(request.nextUrl.searchParams.get("cursor"));
+  console.log(TOTAL_POKEMON);
   try {
     const allPokemonPromises = Array.from(
-      { length: TOTAL_POKEMON },
+      { length: DATA_NUM_PER_PAGE },
       (_, index) => {
-        const id = index + 1;
+        const id = TOTAL_POKEMON - DATA_NUM_PER_PAGE + index + 1;
         return Promise.all([
           axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`),
           axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`),

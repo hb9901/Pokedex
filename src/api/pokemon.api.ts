@@ -8,8 +8,8 @@ class PokemonAPI {
     this.axios = axios;
   }
 
-  async getPokemonList() {
-    const path = "/api";
+  async getPokemonList({ pageParam = 6 }) {
+    const path = `/api?cursor=${pageParam}`;
     const response = await this.axios.get<Promise<TPokemon[]>>(path);
     const pokemonsData = await response.data;
 
