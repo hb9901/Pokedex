@@ -4,7 +4,7 @@ const typeChipVariants = cva(
   "text-sm font-bold text-white border rounded-md px-4",
   {
     variants: {
-      intent: {
+      name: {
         dark: "bg-[#775544]",
         fire: "bg-orange-600",
         grass: "bg-green-600",
@@ -28,14 +28,15 @@ const typeChipVariants = cva(
   }
 );
 
-type TypeChipVariantsType = VariantProps<typeof typeChipVariants>;
+export type TypeChipVariantsType = VariantProps<typeof typeChipVariants>;
 
 type TypeChipProps = {
   label: string;
 } & TypeChipVariantsType;
 
-function TypeChip({ label, intent }: TypeChipProps) {
-  return <div className={typeChipVariants({ intent })}>{label}</div>;
+function TypeChip({ label, name }: TypeChipProps) {
+  
+  return <div className={typeChipVariants({ name })}>{label}</div>;
 }
 
 export default TypeChip;

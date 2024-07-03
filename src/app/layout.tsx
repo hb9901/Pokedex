@@ -5,7 +5,10 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pokedex",
+  title: {
+    template: " %s | 포켓몬 도감",
+    default: "포켓몬 도감",
+  },
   description: "Infomoation for Pokemons",
 };
 

@@ -17,21 +17,27 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
   return (
     <div className="flex flex-col items-center max-w-5xl m-auto">
       <header className="flex flex-row items-center justify-between w-full min-h-14 bg-slate-300">
-        {pokemonData.id > 1 && (
+        {pokemonData.id > 1 ? (
           <Link href={`/pokemons/${pokemonData.id - 1}`}>
             <button className="bg-slate-500 px-5 py-1 text-white rounded-md">
               이전 포켓몬
             </button>
           </Link>
+        ) : (
+          <div className="w-32" />
         )}
         <Link href="/">
           <span className="text-black font-bold text-xl">포켓몬 도감</span>
         </Link>
-        <Link href={`/pokemons/${pokemonData.id + 1}`}>
-          <button className="bg-slate-500 px-5 py-1 text-white rounded-md">
-            다음 포켓몬
-          </button>
-        </Link>
+        {pokemonData.id < 151 ? (
+          <Link href={`/pokemons/${pokemonData.id + 1}`}>
+            <button className="bg-slate-500 px-5 py-1 text-white rounded-md">
+              다음 포켓몬
+            </button>
+          </Link>
+        ) : (
+          <div className="w-32" />
+        )}
       </header>
       <main className="w-full bg-white">
         <div className="flex flex-row">
@@ -55,7 +61,7 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
                     <li key={index}>
                       <TypeChip
                         label={type.type.korean_name}
-                        intent={type.type.name}
+                        name={type.type.name}
                       />
                     </li>
                   ))}

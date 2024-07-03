@@ -9,7 +9,12 @@ type ModalContextValue = {
   close: () => void;
 };
 
-const ModalContext = createContext<ModalContextValue>();
+const initialValue = {
+  open: () => {},
+  close: () => {}
+}
+
+const ModalContext = createContext<ModalContextValue>(initialValue);
 
 export const useModal = () => useContext(ModalContext);
 

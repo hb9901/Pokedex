@@ -1,14 +1,18 @@
 import PokemonDetail from "@/components/PokemonDetail";
 import { TPokemon } from "@/schemas/pokemon.type";
 import axios from "axios";
+import { Metadata } from "next";
 
-interface DetailPageProps {
+interface MetadataProps {
   params: {
     id: string;
   };
 }
 
-async function DetailPage({ params }: DetailPageProps) {
+export async function generateMetadata({
+  params,
+}: MetadataProps): Promise<Metadata> {
+  const id = params.id;
   async function getPokemon(id: string) {
     const response = await axios.get<Promise<TPokemon>>(
       `http://localhost:3000/pokemons/${id}/api`
@@ -18,7 +22,32 @@ async function DetailPage({ params }: DetailPageProps) {
     return data;
   }
 
-  const pokemonData = await getPokemon(params.id);
+  const pokemonData = await getPokemon(id);
+  const title = pokemonData.korean_name;
+
+  return {
+    title,
+  };
+}
+
+interface DetailPageProps {
+  params: {
+    id: string;
+  };
+}
+
+async function DetailPage({ params }: DetailPageProps) {
+  const id = params.id;
+  async function getPokemon(id: string) {
+    const response = await axios.get<Promise<TPokemon>>(
+      `http://localhost:3000/pokemons/${id}/api`
+    );
+    const data = response.data;
+
+    return data;
+  }
+
+  const pokemonData = await getPokemon(id);
 
   return <PokemonDetail pokemonData={pokemonData} />;
 }
