@@ -2,7 +2,7 @@ import { TPokemon } from "@/schemas/pokemon.type";
 import PokemonListCard from "../PokemonListCard";
 
 interface PokemonListProps {
-  pokemons: TPokemon[] | null;
+  pokemons: TPokemon[] | undefined;
 }
 
 function PokemonList({ pokemons }: PokemonListProps) {
