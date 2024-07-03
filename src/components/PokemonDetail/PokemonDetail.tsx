@@ -61,7 +61,7 @@ function PokemonDetail({ pokemonData }: PokemonDetailProps) {
                     <li key={index}>
                       <TypeChip
                         label={type.type.korean_name}
-                        name={type.type.name}
+                        intent={type.type.name}
                       />
                     </li>
                   ))}
