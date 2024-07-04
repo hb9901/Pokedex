@@ -1,3 +1,4 @@
+import { TypeChipVariantsType } from "@/components/Common/TypeChip/TypeChip";
 
 export type TPokemon = {
   id: number;
@@ -15,9 +16,8 @@ export type TPokemon = {
   };
   types: {
     type: {
-      name: TPokemonTypeName;
       korean_name: string;
-    };
+    } & TypeChipVariantsType
   }[];
   abilities: { ability: { name: string; korean_name: string } }[];
   moves: { move: { name: string; korean_name: string } }[];
