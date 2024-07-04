@@ -1,7 +1,18 @@
-import axios from "axios";
+import { TPokemon } from "@/schemas/pokemon.type";
+import axios, { AxiosResponse } from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
-const MAX_POKEMON = 151;  
+type TPokemonRouteType = TPokemon & {
+  names: {
+    language: {
+      name: string;
+      url: string;
+    };
+    name: string;
+  }[];
+};
+
+const MAX_POKEMON = 151;
 
 export const GET = async (request: NextRequest) => {
   const DATA_NUM_PER_PAGE = 12;
@@ -14,11 +25,17 @@ export const GET = async (request: NextRequest) => {
         const id = TOTAL_POKEMON - DATA_NUM_PER_PAGE + index + 1;
         if (id > MAX_POKEMON) return null;
         return Promise.all([
-          axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`),
-          axios.get(`https://pokeapi.co/api/v2/pokemon-species/${id}`),
+          axios.get<TPokemonRouteType>(
+            `https://pokeapi.co/api/v2/pokemon/${id}`
+          ),
+          axios.get<TPokemonRouteType>(
+            `https://pokeapi.co/api/v2/pokemon-species/${id}`
+          ),
         ]);
       }
-    ).filter(Boolean);
+    ).filter(Boolean) as Promise<
+      [AxiosResponse<TPokemonRouteType>, AxiosResponse<TPokemonRouteType>]
+    >[];
 
     const allPokemonResponses = await Promise.all(allPokemonPromises);
 
