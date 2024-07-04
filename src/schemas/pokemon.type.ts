@@ -1,5 +1,3 @@
-import { TypeChipVariantsType } from "@/components/Common/TypeChip/TypeChip";
-
 export type TPokemon = {
   id: number;
   name: string;
@@ -16,8 +14,9 @@ export type TPokemon = {
   };
   types: {
     type: {
+      name: TPokemonTypeName;
       korean_name: string;
-    } & TypeChipVariantsType
+    };
   }[];
   abilities: { ability: { name: string; korean_name: string } }[];
   moves: { move: { name: string; korean_name: string } }[];
@@ -27,4 +26,22 @@ export type TMove = {
   move: { name: string; korean_name: string };
 };
 
-export type TPokemonTypeName = "dark" | "fire" | "grass" | "electric" | "water" | "ground" | "rock" | "fairy" | "poison" | "bug" | "dragon" | "psychic" | "flying" | "fighting" | "normal" | "steel" | "ice" | "ghost" ;
+export type TPokemonTypeName =
+  | "dark"
+  | "fire"
+  | "grass"
+  | "electric"
+  | "water"
+  | "ground"
+  | "rock"
+  | "fairy"
+  | "poison"
+  | "bug"
+  | "dragon"
+  | "psychic"
+  | "flying"
+  | "fighting"
+  | "normal"
+  | "steel"
+  | "ice"
+  | "ghost";
