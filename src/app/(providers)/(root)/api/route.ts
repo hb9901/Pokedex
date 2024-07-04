@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const GET = async (request: NextRequest) => {
   const DATA_NUM_PER_PAGE = 12;
   const TOTAL_POKEMON = Number(request.nextUrl.searchParams.get("cursor"));
-  console.log(TOTAL_POKEMON);
+
   try {
     const allPokemonPromises = Array.from(
       { length: DATA_NUM_PER_PAGE },
