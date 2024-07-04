@@ -8,6 +8,7 @@
 ```
 git clone https://github.com/hb9901/Pokedex.git
 cd ./Pokedex
+npm i
 npm run dev
 ```
 # Environment Variables
