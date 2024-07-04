@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from "axios";
 import PokemonAPI from "./pokemon.api";
 
-const BASE_URL = process.env.BASE_URL ?? process.env.NEXT_PUBLIC_VERCEL_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 class API {
   private axios: AxiosInstance;
