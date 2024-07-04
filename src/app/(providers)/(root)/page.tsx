@@ -40,7 +40,6 @@ export default function HomePage() {
     return () => observer && observer.disconnect();
   }, [onIntersect, hasNextPage, isFetching]);
 
-  console.log(hasNextPage);
   return (
     <main className="flex flex-col items-center max-w-[1800px] mt-8 m-auto gap-y-6">
       <h1 className="text-xl font-bold" onClick={() => fetchNextPage()}>

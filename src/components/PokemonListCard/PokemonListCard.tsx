@@ -23,6 +23,7 @@ function PokemonListCard({ pokemon }: PokemonListCardProps) {
             fill
             className="object-cover"
             sizes="w-full"
+            priority
           />
         </div>
         <span className="text-slate-400 text-sm">No.{pokemonId}</span>
