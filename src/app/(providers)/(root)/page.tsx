@@ -47,13 +47,12 @@ export default function HomePage() {
       ) : (
         <h1 className="text-xl font-bold">포켓몬 도감</h1>
       )}
-      {pokemons &&
-        pokemons.pages.map((page, index) => (
-          <PokemonList key={index} pokemons={page} />
-        ))}
+      {pokemons && <PokemonList pokemons={pokemons} />}
       {!error && isFetching && <Loading />}
 
-      {hasNextPage && !isFetching && <div ref={loadMoreRef}>Loading...</div>}
+      {hasNextPage && !isFetching && (
+        <div ref={loadMoreRef} className="h-10"></div>
+      )}
     </main>
   );
 }

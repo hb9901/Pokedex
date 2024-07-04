@@ -20,6 +20,7 @@ function usePokemons() {
       }
       return lastPageParam + 12;
     },
+    select: ({ pages }) => pages.flat(),
   });
 
   return { pokemons, error, isFetching, hasNextPage, fetchNextPage };
