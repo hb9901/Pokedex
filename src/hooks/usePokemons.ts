@@ -4,7 +4,7 @@ import { useInfiniteQuery } from "@tanstack/react-query";
 function usePokemons() {
   const {
     data: pokemons,
-    error: isError,
+    error,
     fetchNextPage,
     hasNextPage,
     isFetching,
@@ -22,7 +22,7 @@ function usePokemons() {
     },
   });
 
-  return { pokemons, isError, isFetching, hasNextPage, fetchNextPage };
+  return { pokemons, error, isFetching, hasNextPage, fetchNextPage };
 }
 
 export default usePokemons;

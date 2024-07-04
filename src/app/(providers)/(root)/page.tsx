@@ -6,7 +6,7 @@ import usePokemon from "@/hooks/usePokemons";
 import { useCallback, useEffect, useRef } from "react";
 
 export default function HomePage() {
-  const { pokemons, isFetching, isError, hasNextPage, fetchNextPage } =
+  const { pokemons, isFetching, error, hasNextPage, fetchNextPage } =
     usePokemon();
   const loadMoreRef = useRef(null);
 
@@ -42,14 +42,16 @@ export default function HomePage() {
 
   return (
     <main className="flex flex-col items-center max-w-[1800px] mt-8 m-auto gap-y-6">
-      <h1 className="text-xl font-bold" onClick={() => fetchNextPage()}>
-        포켓몬 도감
-      </h1>
+      {error ? (
+        <div>{error.message}</div>
+      ) : (
+        <h1 className="text-xl font-bold">포켓몬 도감</h1>
+      )}
       {pokemons &&
         pokemons.pages.map((page, index) => (
           <PokemonList key={index} pokemons={page} />
         ))}
-      {isFetching && <Loading />}
+      {!error && isFetching && <Loading />}
 
       {hasNextPage && !isFetching && <div ref={loadMoreRef}>Loading...</div>}
     </main>
