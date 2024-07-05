@@ -1,5 +1,5 @@
 import api from "@/api/api";
-import PokemonDetail from "@/components/PokemonDetail";
+import PokemonDetail from "@/app/(providers)/(root)/pokemons/_components/PokemonDetail";
 import { Metadata } from "next";
 
 interface MetadataProps {

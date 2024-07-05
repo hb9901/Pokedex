@@ -1,11 +1,11 @@
+import AbilityChip from "@/components/Chip/AbilityChip";
+import TypeChip from "@/components/Chip/TypeChip";
 import { TPokemon } from "@/schemas/pokemon.type";
 import { makeIndexStr } from "@/utils/function";
 import Image from "next/image";
 import Link from "next/link";
-import AbilityChip from "../Common/AbilityChip";
-import TypeChip from "../Common/TypeChip";
-import DetailForm from "./DetailForm";
-import MovesBtn from "./MovesBtn";
+import DetailForm from "../DetailForm";
+import MovesBtn from "../MovesBtn";
 
 interface PokemonDetailProps {
   pokemonData: TPokemon;

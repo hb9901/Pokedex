@@ -1,5 +1,5 @@
 "use client";
-import MoveChip from "@/components/Common/MoveChip";
+import MoveChip from "@/components/Chip/MoveChip";
 import { useModal } from "@/contexts/modal.context";
 import { TMove } from "@/schemas/pokemon.type";
 import BackDrop from "../BackDrop";

@@ -1,7 +1,7 @@
 import { TPokemon } from "@/schemas/pokemon.type";
 import Image from "next/image";
 import Link from "next/link";
-import { makeIndexStr } from "../../utils/function";
+import { makeIndexStr } from "../../../../../utils/function";
 
 interface PokemonListCardProps {
   pokemon: TPokemon;

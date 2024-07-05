@@ -1,7 +1,7 @@
 "use client";
 
+import PokemonList from "@/app/(providers)/(root)/_components/PokemonList";
 import Loading from "@/components/Loading";
-import PokemonList from "@/components/PokemonList";
 import usePokemon from "@/hooks/usePokemons";
 import { useCallback, useEffect, useRef } from "react";
 
